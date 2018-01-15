@@ -1,0 +1,59 @@
+<form>
+    <table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td><h1>Search Rents By Client:</h1></td>
+        </tr>
+    </table>
+
+    <table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+        <tr bgcolor="#CCCCCC">
+            <td><label>Name:</label></td>
+            <td><input id="name" name="name" type="text" ng-model="client.name"></td>
+        </tr>
+        <tr bgcolor="#CCCCCC">
+            <td><label>Lastname:</label></td>
+            <td><input id="lastname" name="lastname" type="text" ng-model="client.lastName"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <button ng-click="findClient(client)">Search</button>
+                <button ng-click="clear()">Clear</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br><br>
+<table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><h1>Results of Clients:</h1></td>
+    </tr>
+</table>
+<table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+    <tr bgcolor="#CCCCCC">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Login</th>
+        <th>Phone</th>
+        <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="client in clientList track by $index">
+        <td>{{client.id}}</td>
+        <td>{{client.name}}</td>
+        <td>{{client.lastName}}</td>
+        <td>{{client.email}}</td>
+        <td>{{client.login}}</td>
+        <td>{{client.phone}}</td>
+        <td><a href="#/returnFilms/{{client.id}}" >[Return Films]</a></td>
+    </tr>
+    </tbody>
+</table>
+
+

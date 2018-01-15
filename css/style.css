@@ -1,0 +1,8 @@
+.no-spin::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/* Hide the cancel button */
+::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}

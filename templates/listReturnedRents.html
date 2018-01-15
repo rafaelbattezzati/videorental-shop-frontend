@@ -1,0 +1,41 @@
+<table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><h1>List of Films</h1></td>
+    </tr>
+</table>
+
+<table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+    <tr bgcolor="#CCCCCC">
+        <th>Order Id</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th>Start Rent date</th>
+        <th>Expected Return date</th>
+        <th>Final Return date</th>
+        <th>Expected Price</th>
+        <th>Final Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tbody>
+    <tr ng-repeat="order in orders track by $index">
+        <td width="5%">{{order.orderId}}</td>
+        <td width="5%">{{order.film.id}}</td>
+        <td width="15%">{{order.film.name}}</td>
+        <td width="10%">{{order.film.filmPriceType.price}} SEK</td>
+        <td width="10%">{{order.film.filmPriceType.description}}</td>
+        <td width="15%">
+            {{order.startRentDate | date: 'dd-MM-yyyy'}}
+        </td>
+        <td width="15%">
+            {{order.expectedEndRentDate | date: 'dd-MM-yyyy'}}
+        </td>
+        <td width="10%" align="right">{{order.endRentDate | date: 'dd-MM-yyyy'}}</td>
+        <td width="10%" align="right">{{order.expectedPrice}} SEK</td>
+        <td width="10%" align="right">{{order.finalPrice}} SEK</td>
+
+    </tr>
+    </tbody>
+</table>

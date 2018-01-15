@@ -1,0 +1,138 @@
+<table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><h1>Return Films of Client:</h1></td>
+    </tr>
+</table>
+
+
+<table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+    <tr bgcolor="#CCCCCC">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Login</th>
+        <th>Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{client.id}}</td>
+        <td>{{client.name}}</td>
+        <td>{{client.lastName}}</td>
+        <td>{{client.email}}</td>
+        <td>{{client.login}}</td>
+        <td>{{client.phone}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><h1>Return Films:</h1></td>
+    </tr>
+</table>
+
+<table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+    <tr bgcolor="#CCCCCC">
+        <th>Order Id</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th>Start Rent date</th>
+        <th>Expected Return date</th>
+        <th>Final Return date</th>
+        <th>Expected Price</th>
+        <th></th>
+
+    </tr>
+
+    <tbody ng-init="total = 0">
+    <tr ng-repeat="order in ordersList track by $index">
+        <td width="5%">{{order.orderId}}</td>
+        <td width="5%">{{order.film.id}}</td>
+        <td width="20%">{{order.film.name}}</td>
+        <td width="5%">{{order.film.filmPriceType.price}} SEK</td>
+        <td width="5%">{{order.film.filmPriceType.description}}</td>
+        <td width="15%">
+            {{order.startRentDate | date: 'dd-MM-yyyy'}}
+        </td>
+        <td width="15%">
+            {{order.expectedEndRentDate | date: 'dd-MM-yyyy'}}
+        </td>
+        <td width="10%" align="right">{{order.endRentDate}}</td>
+        <td width="10%" align="right" ng-init="$parent.total = $parent.total + order.expectedPrice">
+            {{order.expectedPrice}} SEK</td>
+        <td width="5%"><a href="" ng-click="returnFilm(order)">[Return]</a></td>
+    </tr>
+
+    <tr bgcolor="#CCCCCC">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+
+    </tr>
+
+    <!--- Totais -->
+    <tr bgcolor="#CCCCCC">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="right">Total price:</span></td>
+        <td align="right">{{total}} SEK</span></td>
+        <td>&nbsp;</td>
+    </tr>
+
+    <tr bgcolor="#CCCCCC">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="right">Delivery:</td>
+        <td align="right"><b>Pick up</b></td>
+        <td>&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<!--
+<table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><h3>Payment:</h3></td>
+    </tr>
+</table>
+<table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+    <tr><td>
+        <table border="1" width="100%" >
+            <tr><td width='50%' align="center" bgcolor="aqua">
+            <a href=''>Cash</a>
+            </td>
+            <td width='50%' align="center">
+            <a href=''>Credit/Debit Card</a>
+            </td>
+            </tr>
+            <tr><td colspan='2' align="center">
+                <input type="submit" value="Pay and Return Order">
+            </td></tr>
+        </table>
+    </td>
+    </tr>
+</table>
+-->
+

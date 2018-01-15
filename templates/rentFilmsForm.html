@@ -1,0 +1,82 @@
+<form>
+    <table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td><h1>Add Film to Basket</h1></td>
+        </tr>
+    </table>
+
+    <table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+        <tr bgcolor="#CCCCCC">
+            <td><label>Name:</label></td>
+            <td>{{itemFilm.film.name}}</td>
+        </tr>
+        <tr bgcolor="#CCCCCC">
+            <td><label>Type:</label></td>
+            <td>{{itemFilm.film.filmPriceType.description}}</td>
+        </tr>
+        <tr bgcolor="#CCCCCC">
+            <td><label>Price:</label></td>
+            <td>{{itemFilm.film.filmPriceType.price}} SEK</td>
+        </tr>
+        <!--<tr bgcolor="#CCCCCC">
+            <td><label>Discount description:</label></td>
+            <td>{{itemFilm.film.filmPriceType.discountDescription}}</td>
+        </tr>-->
+        <tr bgcolor="#CCCCCC">
+            <td><label>Start Rent Date:</label></td>
+            <td>
+                <input id="startRentDate" name="startRentDate" type="date" ng-model="itemFilm.startRentDate" onkeypress="return false" onkeydown="return false" class="no-spin" />
+            </td>
+        </tr>
+
+        <tr bgcolor="#CCCCCC">
+            <td><label for="expectedEndRentDate">Expected End Rent Date:</label></td>
+            <td>
+                <input id="expectedEndRentDate" name="expectedEndRentDate" type="date" ng-model="itemFilm.expectedEndRentDate" min="{{itemFilm.startRentDate | date:'yyyy-MM-dd'}}" onkeypress="return false" onkeydown="return false"  class="no-spin"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+            <!--<button ng-click="save(itemFilm)">Add to Basket</button> -->
+            <button type="button" ng-click="addFilm(itemFilm)">Add to Basket</button>
+            <button type="button" ng-click="cancel()">Cancel</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br><br>
+<table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><h1>Rents of Film selected:</h1></td>
+    </tr>
+</table>
+<table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+    <tr bgcolor="#CCCCCC">
+        <th>Code</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Total Days</th>
+        <th>Total Rent Price</th>
+        <th>Start Rent Date</th>
+        <th>Expected End Rate Date</th>
+        <th>Final End Rate Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="rentFilm in filmRentList track by $index">
+        <td>{{rentFilm.film.id}}</td>
+        <td>{{rentFilm.film.name}}</td>
+        <td>{{rentFilm.film.filmPriceType.description}}</td>
+        <td>{{rentFilm.film.filmPriceType.price}} SEK</td>
+        <td>{{rentFilm.daysBetween}}</td>
+        <td>{{rentFilm.expectedPrice}}</td>
+        <td>{{rentFilm.startRentDate | date: 'dd-MM-yyyy'}}</td>
+        <td>{{rentFilm.expectedEndRentDate | date: 'dd-MM-yyyy'}}</td>
+        <td>{{rentFilm.endRentDate}}</td>
+    </tr>
+    </tbody>
+</table>

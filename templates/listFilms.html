@@ -1,0 +1,28 @@
+<table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><h1>List of Films</h1></td>
+    </tr>
+</table>
+
+<table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+    <tr bgcolor="#CCCCCC">
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th></th>
+        <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="film in films track by $index">
+        <td ng-dblclick="edit(film)">{{film.id}}</td>
+        <td ng-dblclick="edit(film)">{{film.name}}</td>
+        <td ng-dblclick="edit(film)">{{film.filmPriceType.price}} SEK</td>
+        <td ng-dblclick="edit(film)">{{film.filmPriceType.description}}</td>
+        <td><a href="#/addFilms/{{film.id}}" >[Edit]</a></td>
+        <td><a href="" ng-click="remove(film)">[Remove]</a></td>
+    </tr>
+    </tbody>
+</table>

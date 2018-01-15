@@ -1,0 +1,62 @@
+<table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><h1>List of Films</h1></td>
+    </tr>
+</table>
+
+<table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+    <tr bgcolor="#CCCCCC">
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="itemFilm in itemFilms track by $index">
+        <td>{{itemFilm.film.id}}</td>
+        <td>{{itemFilm.film.name}}</td>
+        <td>{{itemFilm.film.filmPriceType.price}} SEK</td>
+        <td>{{itemFilm.film.filmPriceType.description}}</td>
+        <td><a href="#/rentFilms/{{itemFilm.film.id}}" >[Add to Basket]</a></td>
+        <!--<td><a href="" ng-click="addFilm(itemFilm)">[Add to Basket]</a></td>-->
+
+    </tr>
+    </tbody>
+</table>
+
+<!--
+<BR><BR>
+<table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><h1>BASKET</h1></td>
+    </tr>
+</table>
+
+<table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+    <tr bgcolor="#CCCCCC">
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="filmBasketList in filmBasketList track by $index">
+        <td>{{filmBasketList.filmBasket.film.id}}</td>
+        <td>{{filmBasketList.filmBasket.film.name}}</td>
+        <td>{{filmBasketList.filmBasket.film.filmPriceType.price}}</td>
+        <td>{{filmBasketList.filmBasket.film.filmPriceType.description}}</td>
+        <td><a href="" ng-click="removeFilm($index)">[Remove]</a></td>
+    </tr>
+    </tbody>
+</table> -->
+
+
+
+
+
+

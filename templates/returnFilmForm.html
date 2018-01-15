@@ -1,0 +1,99 @@
+<form>
+    <table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td><h1>Return Films of Client:</h1></td>
+        </tr>
+    </table>
+
+
+    <table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+        <tr bgcolor="#CCCCCC">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Login</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{client.id}}</td>
+            <td>{{client.name}}</td>
+            <td>{{client.lastName}}</td>
+            <td>{{client.email}}</td>
+            <td>{{client.login}}</td>
+            <td>{{client.phone}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table width="95%"  border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td><h1>Order Details:</h1></td>
+        </tr>
+    </table>
+
+    <table width="95%"  border="1" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td bgcolor="#CCCCCC">Order Id:</td>
+            <td>{{order.orderId}}</td>
+        </tr>
+        <tr>
+            <td bgcolor="#CCCCCC">Code:</td>
+            <td>{{order.film.id}}</td>
+        </tr>
+        <tr>
+            <td bgcolor="#CCCCCC">Name:</td>
+            <td>{{order.film.name}}</td>
+        </tr>
+        <tr>
+            <td bgcolor="#CCCCCC">Type:</td>
+            <td>{{order.film.filmPriceType.description}}</td>
+        </tr>
+        <tr>
+            <td bgcolor="#CCCCCC">Price:</td>
+            <td>{{order.film.filmPriceType.price}} SEK</td>
+        </tr>
+        <tr>
+            <td bgcolor="#CCCCCC">Days of rent:</td>
+            <td>{{order.daysBetween}}</td>
+        </tr>
+
+        <tr>
+            <td bgcolor="#CCCCCC">Expected Total Price:</td>
+            <td><a >{{order.expectedPrice}} SEK</a></td>
+        </tr>
+        <!--
+        <tr bgcolor="#CCCCCC">
+            <td><label>Discount description:</label></td>
+            <td>{{itemFilm.film.filmPriceType.discountDescription}}</td>
+        </tr> -->
+        <tr>
+            <td bgcolor="#CCCCCC">Start Rent Date:</td>
+            <td>{{order.startRentDate | date: 'dd-MM-yyyy'}}</td>
+        </tr>
+        <tr>
+            <td bgcolor="#CCCCCC">Expected End Rent Date:</td>
+            <td>{{order.expectedEndRentDate | date: 'dd-MM-yyyy'}}</td>
+        </tr>
+        <tr>
+            <td bgcolor="#CCCCCC"><label for="endRentDate">Final End Rent Date:</label></td>
+            <td>
+                <input id="endRentDate" name="endRentDate" type="date" ng-model="order.endRentDate"
+                       min="{{order.expectedEndRentDate | date:'yyyy-MM-dd'}}"
+                       onkeypress="return false" onkeydown="return false"  class="no-spin"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+            <button type="button" ng-click="endRent(order)">Return Film</button>
+            <button type="button" ng-click="cancel()">Cancel</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+

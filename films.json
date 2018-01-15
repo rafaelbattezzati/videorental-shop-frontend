@@ -1,0 +1,30 @@
+{
+  "films": [
+    {
+      "id": 1,
+      "name": "Matrix 11",
+      "category": null,
+      "filmPriceType": {
+        "type": 1,
+        "price": 40,
+        "description": "Premium"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Old Africa",
+      "category": null,
+      "filmPriceType": {
+        "type": 3,
+        "price": 30,
+        "description": "Basic"
+      }
+    },
+    {
+      "name": "Batman 2",
+      "price": "44",
+      "type": "Basic",
+      "id": 6
+    }
+  ]
+}
